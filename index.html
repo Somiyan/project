@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To do list</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/todo.css">
+
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+</head>
+  
+  <style>
+  
+  </style>
+  
+<body>
+
+  
+  <div style="height: 100px;
+               border: 2px solid black">
+    <span class="print" >
+	</span>
+  </div>
+    
+  
+	<br><br><br>
+	
+	
+	<ul class="text">
+		<li>list1 <span class="remove">x</span></li>
+		<li>list 2 <span class="remove">x</span></li>
+		<li>list 3 <span class="remove">x</span></li>
+		<li>list 4 <span class="remove">x</span></li>
+	</ul><br><br><br><br>
+	<input type="text" placeholder="Add comments">
+	
+	
+<script type="text/javascript" > 
+	$("ul").on("click","li",function(event){ 
+     $(".print").append(this);
+     
+ });
+    $(".print").on("click","li",function(event){
+     $(".text").append(this);
+     
+ });
+    
+    
+	$("ul").on("click", "span", function(event){
+    $(this).parent().remove();
+	event.stopPropagation();
+});
+
+    $("input").keypress(function(event){
+    if(event.which === 13){
+        var todoText = $(this).val();
+        $(this).val("");
+        
+        //new todo will add in list
+        
+        
+      $("ul").append("<li> " + todoText +  " <span>x</span></li>");  
+    }
+    
+});
+    
+    
+</script>
+</body>
+</html>
